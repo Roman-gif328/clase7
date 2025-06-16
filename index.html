@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tablero de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mi Tablero de Tareas </h1>
+        <button id="alternar-tema" class="alternar-tema">🌙</button>
+    </header>
+
+    <main class="contenedor-tablero">
+        <div class="columna" id="por-hacer">
+            <h2>Por Hacer</h2>
+            <div class="lista-tareas" data-id-columna="por-hacer"></div>
+            <button class="btn-agregar-tarea" onclick="agregarTarea('por-hacer')">Agregar Tarea</button>
+        </div>
+
+        <div class="columna" id="en-progreso">
+            <h2>En Progreso</h2>
+            <div class="lista-tareas" data-id-columna="en-progreso"></div>
+            <button class="btn-agregar-tarea" onclick="agregarTarea('en-progreso')">Agregar Tarea</button>
+        </div>
+
+        <div class="columna" id="hecho">
+            <h2>Hecho</h2>
+            <div class="lista-tareas" data-id-columna="hecho"></div>
+            <button class="btn-agregar-tarea" onclick="agregarTarea('hecho')">Agregar Tarea</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,172 @@
+:root {
+    /* Tema Claro */
+    --color-fondo: #f4f7f6;
+    --fondo-tarjeta: #ffffff;
+    --color-texto: #333333;
+    --fondo-columna: #e0e0e0;
+    --color-borde: #cccccc;
+    --fondo-hover: #f0f0f0;
+    --fondo-boton: #4CAF50;
+    --color-texto-boton: white;
+    --color-boton-eliminar: #f44336;
+}
+
+[data-tema='oscuro'] {
+    /* Tema Oscuro */
+    --color-fondo: #2c2c2c;
+    --fondo-tarjeta: #3a3a3a;
+    --color-texto: #e0e0e0;
+    --fondo-columna: #333333;
+    --color-borde: #444444;
+    --fondo-hover: #4a4a4a;
+    --fondo-boton: #66bb6a;
+    --color-texto-boton: #ffffff;
+    --color-boton-eliminar: #ef5350;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--fondo-columna);
+    color: var(--color-texto);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.alternar-tema {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-texto);
+}
+
+.contenedor-tablero {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas pequeñas */
+}
+
+.columna {
+    background-color: var(--fondo-columna);
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.columna h2 {
+    text-align: center;
+    color: var(--color-texto);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.lista-tareas {
+    flex-grow: 1;
+    min-height: 100px; /* Asegura que el área de arrastre sea visible incluso sin tareas */
+    padding: 10px;
+    border: 1px dashed var(--color-borde);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s;
+}
+
+.lista-tareas.arrastrando-sobre {
+    background-color: var(--fondo-hover);
+}
+
+.tarea {
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.tarea:hover {
+    background-color: var(--fondo-hover);
+}
+
+.tarea.arrastrando {
+    opacity: 0.5;
+    transform: scale(0.98);
+}
+
+.texto-tarea {
+    flex-grow: 1;
+    margin-right: 10px;
+    word-break: break-word; /* Evita que las palabras largas se desborden */
+}
+
+.btn-eliminar-tarea {
+    background-color: var(--color-boton-eliminar);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-eliminar-tarea:hover {
+    background-color: #d32f2f; /* Un rojo ligeramente más oscuro para el hover */
+}
+
+.btn-agregar-tarea {
+    background-color: var(--fondo-boton);
+    color: var(--color-texto-boton);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-agregar-tarea:hover {
+    background-color: #5cb85c; /* Un verde ligeramente más oscuro para el hover */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .contenedor-tablero {
+        flex-direction: column;
+        align-items: center;
+    }
+    .columna {
+        width: 90%;
+        max-width: 400px;
+    }
+}
